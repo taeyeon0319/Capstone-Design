@@ -1,7 +1,9 @@
+/*base.html*/
 body {
     background-color: beige;
 }
 
+/*mainpage.html*/
 #logo {
     width: fit-content;
     margin: 0 auto;
@@ -39,4 +41,91 @@ button:hover {
     border-radius: 15px;
     font-size: 30px;
     margin: 30px auto;
+}
+
+
+/*menu_list.html*/
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.container {
+    width: 500px;
+    background-color: #eee;
+    margin: 0 auto;
+}
+
+.buttonContainer {
+    height: 7vh;
+    width: 100%;
+    background-color: #aaa;
+    display: flex;
+    justify-content: end;
+}
+.buttonContainer .first {
+    margin:5px;
+    width: 60px;
+}
+
+.menuContainer {
+    width: 100%;
+    background-color: #bbb;
+}
+.menuContainer .bigMenu {
+    background-color: #eee;
+    height: 10%;
+    display: flex;
+    justify-content:left ;
+}
+.menuContainer .bigMenu a {
+    display: block;
+    width: 100px;
+    background-color:#ccc;
+    text-align: center;
+    line-height: 45px;
+}
+
+.menuContainer .HamburgerMenu .menu {
+    display: grid;
+    padding: 10px 0;
+    row-gap: 17px;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px;
+    justify-content: space-around;
+    align-items: space-around;
+
+}
+.menuContainer .HamburgerMenu .menu .item {
+
+    background-color: #fff;
+    border-radius: 20%;
+  
+    font-size: 8px;
+    text-align: center;
+   
+}
+.menuContainer .HamburgerMenu .menu .item img {
+    width: 90px;height: 70px;
+    display: block;
+    margin:0 auto;
+}
+
+.payContainer {
+    height: 20vh;
+    width: 100%;
+    background-color: #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+.payContainer .cart {
+    height: 85%;
+    width: 50%;
+    background-color: #eee;
+    margin: 10px;
+}
+.payContainer .pay {
+    height: 85%;
+    width: 40%;
+    margin: 10px;
 }

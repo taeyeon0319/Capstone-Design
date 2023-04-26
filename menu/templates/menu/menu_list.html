@@ -3,5 +3,40 @@
 {% load static %}
 
 {% block content %}
-<h1>메뉴리스트</h1>
+<div class="container">
+
+    <div class="buttonContainer">
+        <a href="{% url 'main:mainpage' %}"><button class="first">처음</button></a>
+    </div>
+
+    <div class="menuContainer">
+        <nav class="bigMenu">
+            <a href="#" style="background-color: #bbb;">햄버거</a>
+            <a href="#">사이드</a>
+            <a href="#">음료</a>
+            <a href="#">디저트</a>
+        </nav>
+        
+        <div class="HamburgerMenu">
+            <div class="menu">
+            {% for menu in menus %}
+                <div class="item">
+                    <img src ="https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c52796b3-76cc-444e-b7bb-6b52e171e0a1.png" alt="더콰트로치즈와퍼">
+                    <div class="menuname">{{menu.name}}</div>
+                    <div class="menuprice">{{menu.price}}</div>
+                </div>
+            {% endfor %}
+            </div>
+            
+        </div>
+        <!-- <div class="SideMenu"></div>
+        <div class="BeverageMenu"></div>
+        <div class="DessertMenu"></div> -->
+    </div>
+
+    <div class="payContainer">
+        <div class="cart"></div>
+        <button class="pay">결제하기</button>
+    </div>
+</div>
 {% endblock %}
