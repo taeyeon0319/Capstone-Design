@@ -1,0 +1,19 @@
+<!--장바구니 확인 화면-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<p id="subject">주문 내역 확인하기</p>
+{% for cart in carts %}
+<div class="card" style="width: 18rem;">
+    <img src="https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c52796b3-76cc-444e-b7bb-6b52e171e0a1.png" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{cart.name}}</h5>
+        <p class="card-text">{{cart.price}}</p>
+        <p class="card-text">수량</p>
+    </div>
+</div>
+{% endfor %}
+<button id="pay_btn">결제하기</button>
+{% endblock %}
