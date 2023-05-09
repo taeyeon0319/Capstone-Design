@@ -36,3 +36,8 @@ def cart_delete_each(request, id):
         delete_cart_each = Cart.objects.get(id=id)
         delete_cart_each.delete()
         return redirect('menu:menu')
+
+def cart_delete_each2(request, id):
+        delete_cart_each = Cart.objects.get(id=id)
+        delete_cart_each.delete()
+        return redirect('main:cart_list')

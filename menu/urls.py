@@ -8,4 +8,5 @@ urlpatterns = [
     path('cart_push', cart_push, name="cart_push"),
     path('delete', cart_delete, name="cart_delete"),
     path('delete/<int:id>', cart_delete_each, name="delete"),
+    path('delete2/<int:id>', cart_delete_each2, name="delete2"),
 ]
