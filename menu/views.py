@@ -31,3 +31,8 @@ def cart_delete(request):
 def cart_list(request):
         carts = Cart.objects.all()
         return render(request, 'menu/cart_list.html', {'carts':carts})
+
+def cart_delete_each(request, id):
+        delete_cart_each = Cart.objects.get(id=id)
+        delete_cart_each.delete()
+        return redirect('menu:menu')

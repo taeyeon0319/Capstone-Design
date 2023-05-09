@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hover to TTS Example</title>
+</head>
+<body>
+	<p id="text">테스트입니다.</p>
+
+	<script>
+		const text = document.getElementById('text');
+
+		text.addEventListener('mouseover', () => {
+			const utterance = new SpeechSynthesisUtterance(text.textContent);
+			window.speechSynthesis.speak(utterance);
+		});
+	</script>
+</body>
+</html>

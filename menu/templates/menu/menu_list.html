@@ -92,8 +92,13 @@
 <div class="payContainer">
     <div class="cart" style="background-color: white;">
         {% for cart in carts %}
-        <p id="cart_name">{{cart.name}} &nbsp;&nbsp;{{cart.price}}원</p>
+        <p id="cart_name">{{cart.name}} &nbsp;&nbsp;{{cart.price}}원
+            <a href="{% url 'menu:delete' cart.id %}"><button id="cart_delete">삭제하기</button></a>
+            <br>
+        </p>
+
         {% endfor %}
+
     </div>
     <a href="{% url 'main:cart_list' %}"><button class="pay" style="background-color: white;">결제하기</button></a>
 </div>

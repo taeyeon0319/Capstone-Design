@@ -156,6 +156,7 @@ button:hover {
     background-color: white;
     overflow-y:scroll;
 }
+
 .cart::-webkit-scrollbar {
     width: 15px;
 }
