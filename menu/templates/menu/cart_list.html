@@ -3,7 +3,10 @@
 {% load static %}
 
 {% block content %}
-
+<div class="header">
+    <a href="{% url 'menu:menu' %}"><button class="back">이전</button></a>
+    <a href="{% url 'menu:cart_delete' %}"><button class="back">처음</button></a>
+</div>
 <p id="subject">주문 내역 확인하기</p>
 {% for cart in carts %}
 <div class="card" style="width: 18rem;">
