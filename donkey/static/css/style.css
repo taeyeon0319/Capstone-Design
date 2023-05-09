@@ -15,6 +15,12 @@ body {
     display:flex;
     flex-direction:column;
     align-items: center;
+    overflow-y:scroll;
+
+}
+
+#kiosk_size::-webkit-scrollbar {
+    display: none;
 }
 
 /*mainpage.html*/
@@ -139,7 +145,7 @@ button:hover {
 }
 .payContainer .pay {
     height: 85%;
-    width: 30%;
+    width: 120px;
     margin: 10px;
     font-size: 40px;
 }
@@ -148,7 +154,19 @@ button:hover {
 }
 .cart {
     background-color: white;
+    overflow-y:scroll;
 }
+.cart::-webkit-scrollbar {
+    width: 15px;
+}
+.cart::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 10%;
+}
+.cart::-webkit-scrollbar-track {
+    background-color: #eee;
+}
+
 .menuname {
     font-size: 27px;
 }
@@ -186,8 +204,9 @@ button:hover {
     margin: 100px;
     border-radius: 20px;
     border : 3px solid black;
-    height: 60px;
+    padding: 45px 0;
     width: 300px;
+    font-size: 50px;
 }
 .card-title{
     margin: 10px;

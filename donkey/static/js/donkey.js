@@ -13,7 +13,14 @@ function moveInTabs(evt,tabName) {
 
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+        if(evt.target == tablinks[i]){
+            tablinks[i].style.borderBottom = 'none';
+            // console.log(evt.target, 'cur')
+        } else {
+            // console.log(evt.target)
+            tablinks[i].style.borderBottom = '3px solid #000';
+        }
+
     }
 
     document.getElementById(tabName).style.display = "block";
