@@ -28,4 +28,3 @@ function moveInTabs(evt,tabName) {
 }
 document.getElementById("defaultOpen").click();
 
-

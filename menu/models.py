@@ -13,7 +13,8 @@ class Menu(models.Model):
     price = models.IntegerField() #메뉴가격
     #info = models.TextField() #메뉴설명
     category = models.CharField(max_length=5, choices=CATEGORY) #카테고리
-    #음식이미지 image = models.ImageField(upload_to="", blank=True, null=True)
+    #음식이미지 
+    image = models.ImageField(upload_to="menu/")
 
 '''
 cart 앱 만들고 따로 관리

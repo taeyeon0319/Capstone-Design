@@ -24,8 +24,7 @@
                 <button type="submit" class="menu">
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
-                    <img src="https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c52796b3-76cc-444e-b7bb-6b52e171e0a1.png"
-                        alt="메뉴 사진">
+                    <img src="{{ menu.image.url }}" alt="메뉴 사진">
                     <div class="menuname">{{menu.name}}</div>
                     <div class="menuprice">{{menu.price}}원</div>
                 </button>
@@ -33,7 +32,7 @@
             {% endfor %}
         </div>
     </div>
-
+    
     <div id="category_2" class="tabcontent">
         <div class="menu_group">
             {% for menu in menus_2 %}
@@ -42,8 +41,7 @@
                 <button type="submit" class="menu">
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
-                    <img src="https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c52796b3-76cc-444e-b7bb-6b52e171e0a1.png"
-                        alt="메뉴 사진">
+                    <img src="{{ menu.image.url }}" alt="메뉴 사진">
                     <div class="menuname">{{menu.name}}</div>
                     <div class="menuprice">{{menu.price}}원</div>
                 </button>
@@ -60,8 +58,7 @@
                 <button type="submit" class="menu">
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
-                    <img src="https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c52796b3-76cc-444e-b7bb-6b52e171e0a1.png"
-                        alt="메뉴 사진">
+                    <img src="{{ menu.image.url }}" alt="메뉴 사진">
                     <div class="menuname">{{menu.name}}</div>
                     <div class="menuprice">{{menu.price}}원</div>
                 </button>
@@ -78,8 +75,7 @@
                 <button type="submit" class="menu">
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
-                    <img src="https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c52796b3-76cc-444e-b7bb-6b52e171e0a1.png"
-                        alt="메뉴 사진">
+                    <img src="{{ menu.image.url }}" alt="메뉴 사진">
                     <div class="menuname">{{menu.name}}</div>
                     <div class="menuprice">{{menu.price}}원</div>
                 </button>
@@ -96,7 +92,6 @@
             <a href="{% url 'menu:delete' cart.id %}"><button id="cart_delete">삭제하기</button></a>
             <br>
         </p>
-
         {% endfor %}
 
     </div>
