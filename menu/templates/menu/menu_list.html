@@ -10,10 +10,10 @@
 
 <div class="menu_container">
     <nav class="menu_category">
-        <button id="defaultOpen" class="tablinks" onclick="moveInTabs(event,'category_1')">오넛지</button>
-        <button class="tablinks" onclick="moveInTabs(event,'category_2')">카츠</button>
-        <button class="tablinks" onclick="moveInTabs(event,'category_3')">더푸리</button>
-        <button class="tablinks" onclick="moveInTabs(event,'category_4')">카페</button>
+        <button {%if tapNumber == "0"%}id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_1')">오넛지</button>
+        <button {%if tapNumber == "1"%}id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')">카츠</button>
+        <button {%if tapNumber == "2"%}id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')">더푸리</button>
+        <button {%if tapNumber == "3"%}id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_4')">카페</button>
     </nav>
 
     <div id="category_1" class="tabcontent">
@@ -22,6 +22,7 @@
             <form action="{% url 'menu:cart_push' %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="menu">
+                    <input type="hidden" name="tapNumber" value="0" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
                     <img src="{{ menu.image.url }}" alt="메뉴 사진">
@@ -39,6 +40,7 @@
             <form action="{% url 'menu:cart_push' %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="menu">
+                    <input type="hidden" name="tapNumber" value="1" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
                     <img src="{{ menu.image.url }}" alt="메뉴 사진">
@@ -56,6 +58,7 @@
             <form action="{% url 'menu:cart_push' %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="menu">
+                    <input type="hidden" name="tapNumber" value="2" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
                     <img src="{{ menu.image.url }}" alt="메뉴 사진">
@@ -73,6 +76,7 @@
             <form action="{% url 'menu:cart_push' %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="menu">
+                    <input type="hidden" name="tapNumber" value="3" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
                     <img src="{{ menu.image.url }}" alt="메뉴 사진">
@@ -97,6 +101,4 @@
     </div>
     <a href="{% url 'main:cart_list' %}"><button class="pay" style="background-color: white;">결제하기</button></a>
 </div>
-
-<script src="{% static 'js/donkey.css' %}"></script>
 {% endblock %}
