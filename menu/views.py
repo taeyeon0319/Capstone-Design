@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import *
 
+tapNumber = 0
+
 # Create your views here.
 def menu(request):
         menus_1 = Menu.objects.filter(category="오넛지")
@@ -13,12 +15,16 @@ def menu(request):
                        'menus_2':menus_2, 
                        'menus_3':menus_3, 
                        'menus_4':menus_4,
-                       'carts':carts})
+                       'carts':carts,
+                       'tapNumber': tapNumber})
 
 def cart_push(request):
+        global tapNumber
+
         new_cart =Cart()
         new_cart.name = request.POST.get("name")
         new_cart.price = request.POST.get("price")
+        tapNumber = request.POST.get("tapNumber")
         new_cart.save()
 
         return redirect('menu:menu')
