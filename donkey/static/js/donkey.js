@@ -1,7 +1,6 @@
 const category_1 = document.getElementById('category_1');
 const category_2 = document.getElementById('category_2');
 const category_3 = document.getElementById('category_3');
-const category_4 = document.getElementById('category_4');
 
 function moveInTabs(evt,tabName) {
     var i,tabcontent,tablinks;

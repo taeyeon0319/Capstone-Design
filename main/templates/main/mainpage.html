@@ -10,7 +10,9 @@
     </div>
 
     <div id="btn_set">
-        <a href="{% url 'menu:menu' %}"><button class="main_btn">주문하기</button></a><br>
+        <a href="{% url 'menu:menu' %}">
+            <div id="btn2"><button class="main_btn">주문하기</button></div>
+        </a>
         <a href="{% url 'main:employee_call' %}">
             <div id="btn2"><button class="main_btn2">직원호출</button></div>
         </a>

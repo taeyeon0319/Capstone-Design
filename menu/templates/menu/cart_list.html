@@ -19,5 +19,5 @@
 </div>
 <a href="{% url 'menu:delete2' cart.id %}"><button id="cart_delete">삭제하기</button></a>
 {% endfor %}
-<button id="pay_btn">결제하기</button>
+<a href="{% url 'main:pay' %}"><button id="pay_btn">결제하기</button></a>
 {% endblock %}
