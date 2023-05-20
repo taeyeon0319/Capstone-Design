@@ -11,12 +11,12 @@ def menu(request):
         menus_4 = Menu.objects.filter(category="카페")
         carts = Cart.objects.all()
         return render(request, 'menu/menu_list.html', 
-                      {'menus_1':menus_1, 
-                       'menus_2':menus_2, 
-                       'menus_3':menus_3, 
-                       'menus_4':menus_4,
-                       'carts':carts,
-                       'tapNumber': tapNumber})
+                        {'menus_1':menus_1, 
+                        'menus_2':menus_2, 
+                        'menus_3':menus_3, 
+                        'menus_4':menus_4,
+                        'carts':carts,
+                        'tapNumber': tapNumber})
 
 def cart_push(request):
         global tapNumber
