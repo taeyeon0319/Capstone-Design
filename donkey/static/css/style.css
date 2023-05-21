@@ -246,7 +246,5 @@ button:hover {
     height: 525px;
     font-size: 100px;
     background-color: orange;
+    margin-bottom: 5px;
 }
-/* #payGobackButton,#cartFirstButton{
-    width: 100px;
-} */
