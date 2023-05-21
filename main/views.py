@@ -6,3 +6,9 @@ def mainpage(request):
 
 def employee_call(request):
         return render(request, 'main/employee_call.html')
+
+def pay(request):
+        return render(request, 'main/pay.html')
+
+def final(request):
+        return render(request, 'main/final.html')

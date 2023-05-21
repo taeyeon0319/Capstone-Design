@@ -1,0 +1,14 @@
+<!--완료화면-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="font-size: 80px;">
+    <div class="text">결제가<br>완료되었습니다</div>
+    <script>
+        var jbRandom = Math.random();
+        document.write('<p>' + Math.floor(jbRandom * 10000) + '</p>');
+    </script>
+</div>
+
+{% endblock %}
