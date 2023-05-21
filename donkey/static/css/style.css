@@ -248,3 +248,9 @@ button:hover {
     background-color: orange;
     margin-bottom: 5px;
 }
+/* final */
+.finalPageContainer{
+    font-size: 80px;  
+    text-align : center;
+    padding-top: 100px;
+}
