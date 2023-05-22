@@ -1,33 +1,42 @@
 from django.shortcuts import render, redirect
 from .models import *
+from django.contrib import messages
 
 tapNumber = 0
 
-# Create your views here.
 def menu(request):
-        menus_1 = Menu.objects.filter(category="오넛지")
-        menus_2 = Menu.objects.filter(category="카츠")
-        menus_3 = Menu.objects.filter(category="더푸리")
-        menus_4 = Menu.objects.filter(category="카페")
-        carts = Cart.objects.all()
-        return render(request, 'menu/menu_list.html', 
-                      {'menus_1':menus_1, 
-                       'menus_2':menus_2, 
-                       'menus_3':menus_3, 
-                       'menus_4':menus_4,
-                       'carts':carts,
-                       'tapNumber': tapNumber})
+    menus_1 = Menu.objects.filter(category="오넛지")
+    menus_2 = Menu.objects.filter(category="카츠")
+    menus_3 = Menu.objects.filter(category="더푸리")
+    menus_4 = Menu.objects.filter(category="카페")
+    carts = Cart.objects.all()
+    return render(request, 'menu/menu_list.html', {
+        'menus_1': menus_1,
+        'menus_2': menus_2,
+        'menus_3': menus_3,
+        'menus_4': menus_4,
+        'carts': carts,
+        'tapNumber': tapNumber
+    })
+
 
 def cart_push(request):
-        global tapNumber
+    global tapNumber
 
-        new_cart =Cart()
-        new_cart.name = request.POST.get("name")
-        new_cart.price = request.POST.get("price")
-        tapNumber = request.POST.get("tapNumber")
-        new_cart.save()
-
+    cart_count = Cart.objects.count()
+    if cart_count >= 6:
+        messages.error(request, "Cart 모델 개수가 6개를 초과했습니다.")
         return redirect('menu:menu')
+
+    new_cart = Cart()
+    new_cart.name = request.POST.get("name")
+    new_cart.price = request.POST.get("price")
+    tapNumber = request.POST.get("tapNumber")
+    new_cart.save()
+
+    return redirect('menu:menu')
+
+
 
 def cart_delete(request):
         delete_cart = Cart.objects.all()

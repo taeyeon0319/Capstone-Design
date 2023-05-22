@@ -3,7 +3,6 @@
 {% load static %}
 
 {% block content %}
-
 <div class="header">
     <a href="{% url 'menu:cart_delete' %}"><button class="back">처음</button></a>
 </div>
@@ -18,7 +17,7 @@
     <div id="category_1" class="tabcontent">
         <div class="menu_group">
             {% for menu in menus_1 %}
-            <form action="{% url 'menu:cart_push' %}" method="post">
+            <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
                 <button type="submit" class="menu">
                     <input type="hidden" name="tapNumber" value="0" />
@@ -100,4 +99,5 @@
     </div>
     <a href="{% url 'main:cart_list' %}"><button class="pay" style="background-color: white;">결제하기</button></a>
 </div>
+
 {% endblock %}

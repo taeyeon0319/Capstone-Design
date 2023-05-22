@@ -24,4 +24,3 @@ function moveInTabs(evt,tabName) {
 
     document.getElementById(tabName).style.display = "block";}
 document.getElementById("defaultOpen").click();
-
