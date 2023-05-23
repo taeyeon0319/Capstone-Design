@@ -30,19 +30,22 @@ body {
 }
 
 #logo_img {
-    width: 600px;
+    width: 700px;
 }
 
 #btn_set {
-    width: fit-content;
-    margin: 0 auto;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .main_btn {
     width: 500px;
     height: 100px;
     border-radius: 15px;
-    margin: 30px;
+    margin: 30px auto;
     font-size: 50px;
 }
 
@@ -66,7 +69,7 @@ button:hover {
 
 /*menu_list.html*/
 .header {
-    height: 10%;
+    height: 15%;
     width: 100%;
     background-color: rgba(252, 197, 94, 0.5);
     display: flex;
@@ -75,18 +78,19 @@ button:hover {
 
 .back {
     margin:5px;
-    width: 300px;
+    width: 788px;
+    height: 187px;
     font-size: 80px;
 }
 
 .menu_container {
     width: 100%;
-    height: 75%;
+    height: 70%;
     background-color: rgba(252, 197, 94, 0.5);
 }
 
 .menu_category {
-    height: 10%;
+    height: 17.5%;
     display: flex;
     justify-content:left ;
     border-bottom: none;
@@ -94,7 +98,7 @@ button:hover {
 
 .menu_category button {
     display: block;
-    width: 200px;
+    width: 33.33%;
     background-color:orange;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -114,21 +118,19 @@ button:hover {
 
 .menu_group {
     display: grid;
-    padding: 80px 0;
-    row-gap: 100px;
-    grid-template-columns: 170px 170px 170px 170px;
-    grid-template-rows: 170px 170px 170px 170px;
+    height: 17.5%;
+    grid-template-columns: 33.33% 33.33% 33.33%;
     justify-content: space-evenly;
-
 }
 
 .menu {
     background-color: white;
-    border-radius: 20%;
+    border-radius: 10%;
     font-size: 25px;
     text-align: center;
-    width: 170px;
-    height: 200px;
+    width: 250px;
+    height: 230px;
+    margin:13px;
 }
 
 .menu img {
@@ -150,6 +152,7 @@ button:hover {
     width: 80%;
     background-color: white;
     margin: 10px;
+    overflow-y: scroll;
 }
 .payContainer .pay {
     height: 85%;
@@ -159,21 +162,6 @@ button:hover {
 }
 .payContainer button {
     background-color:rgba(252, 197, 94, 0.2) ;
-}
-.cart {
-    background-color: white;
-    overflow-y:scroll;
-}
-
-.cart::-webkit-scrollbar {
-    width: 15px;
-}
-.cart::-webkit-scrollbar-thumb {
-    background-color: #666;
-    border-radius: 10%;
-}
-.cart::-webkit-scrollbar-track {
-    background-color: #eee;
 }
 
 .menuname {
@@ -188,40 +176,81 @@ button:hover {
 }
 
 /*cart_list.html*/
-#subject{
+/* #subject{
     padding : 10px;
     font-size: 50px;
     font-weight: bold;
     color: white;
+} */
+.cartBackButton{
+    height: 300px;
+}
+.cardContainer{
+    width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .card{
-    border: 3px solid black;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    height: 500px;
+    border-left: 1px solid rgba(0,0,0);
+    border-bottom: 1px solid rgba(0,0,0);
+    border-top: 1px solid rgba(0,0,0);
+    margin-bottom: 5px;
+}
+.card:last-child, .card:nth-child(3n){
+    border-right: 1px solid rgba(0,0,0);
 }
 .card-img-top{
-    margin:10px;
+    width: 100%;
 }
 .card-body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 30px;
 }
 
 #pay_btn{
-    margin: 100px;
     border-radius: 20px;
-    border : 3px solid black;
-    padding: 45px 0;
-    width: 300px;
+    border : 1px solid black;
+    padding: 5px 250px;
     font-size: 50px;
 }
 .card-title{
     margin: 10px;
     padding: 0px;
+    font-size: 30px;
 }
 .card-text{
     margin: 10px;
     padding: 0px;
+}
+.cart_delete_btn{
+    width: 100%;
+    height: 92px;
+    font-size: 50px;
+    border: none;
+}
+/* pay.html  */
+.pageButtonContainer{
+    display: flex;
+}
+#goToPreviousPage,#goToFirstPage{
+    width: 400px;
+    height: 250px;
+    font-size: 100px;
+    background-color: orange;
+}
+#Card, #Cash {
+    width: 800px;
+    height: 525px;
+    font-size: 100px;
+    background-color: orange;
+    margin-bottom: 5px;
+}
+/* final */
+.finalPageContainer{
+    font-size: 80px;  
+    text-align : center;
+    padding-top: 100px;
 }

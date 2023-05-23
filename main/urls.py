@@ -8,4 +8,6 @@ urlpatterns = [
     path('', mainpage, name="mainpage"),
     path('call/', employee_call, name="employee_call"),
     path('cart/', cart_list, name="cart_list"),
+    path('pay/', pay, name="pay"),
+    path('final/', final, name="final"),
 ]
