@@ -78,8 +78,8 @@ button:hover {
 
 .back {
     margin:5px;
-    width: 300px;
-    height: 100%;
+    width: 788px;
+    height: 187px;
     font-size: 80px;
 }
 
@@ -128,8 +128,9 @@ button:hover {
     border-radius: 10%;
     font-size: 25px;
     text-align: center;
-    width: 100%;
-    height: 100%;
+    width: 250px;
+    height: 230px;
+    margin:13px;
 }
 
 .menu img {
@@ -151,6 +152,7 @@ button:hover {
     width: 80%;
     background-color: white;
     margin: 10px;
+    overflow-y: scroll;
 }
 .payContainer .pay {
     height: 85%;
@@ -174,44 +176,61 @@ button:hover {
 }
 
 /*cart_list.html*/
-#subject{
+/* #subject{
     padding : 10px;
     font-size: 50px;
     font-weight: bold;
     color: white;
+} */
+.cartBackButton{
+    height: 300px;
+}
+.cardContainer{
+    width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .card{
-    border: 3px solid black;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    height: 500px;
+    border-left: 1px solid rgba(0,0,0);
+    border-bottom: 1px solid rgba(0,0,0);
+    border-top: 1px solid rgba(0,0,0);
+    margin-bottom: 5px;
+}
+.card:last-child, .card:nth-child(3n){
+    border-right: 1px solid rgba(0,0,0);
 }
 .card-img-top{
-    margin:10px;
+    width: 100%;
 }
 .card-body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 30px;
 }
 
 #pay_btn{
-    margin: 100px;
     border-radius: 20px;
-    border : 3px solid black;
-    padding: 45px 0;
-    width: 300px;
+    border : 1px solid black;
+    padding: 5px 250px;
     font-size: 50px;
 }
 .card-title{
     margin: 10px;
     padding: 0px;
+    font-size: 30px;
 }
 .card-text{
     margin: 10px;
     padding: 0px;
 }
-
+.cart_delete_btn{
+    width: 100%;
+    height: 92px;
+    font-size: 50px;
+    border: none;
+}
 /* pay.html  */
 .pageButtonContainer{
     display: flex;
@@ -227,4 +246,11 @@ button:hover {
     height: 525px;
     font-size: 100px;
     background-color: orange;
+    margin-bottom: 5px;
+}
+/* final */
+.finalPageContainer{
+    font-size: 80px;  
+    text-align : center;
+    padding-top: 100px;
 }
