@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 
-tapNumber = 1
+tapNumber = 0
 
 
 def menu(request):
@@ -11,11 +11,11 @@ def menu(request):
     menus_3 = Menu.objects.filter(category="더푸리")
     carts = Cart.objects.all()
     return render(request, 'menu/menu_list.html',
-                  {'menus_1': menus_1,
-                   'menus_2': menus_2,
-                   'menus_3': menus_3,
-                   'carts': carts,
-                   'tapNumber': tapNumber})
+                    {'menus_1': menus_1,
+                    'menus_2': menus_2,
+                    'menus_3': menus_3,
+                    'carts': carts,
+                    'tapNumber': tapNumber})
 
 
 def cart_push(request):
