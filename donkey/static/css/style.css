@@ -35,7 +35,7 @@ body {
 
 #btn_set {
     width: 800px;
-    height: 500px;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,10 +43,10 @@ body {
 
 .main_btn {
     width: 500px;
-    height: 100px;
+    height: 300px;
     border-radius: 15px;
     margin: 30px auto;
-    font-size: 50px;
+    font-size: 100px;
 }
 
 button:hover {
@@ -59,11 +59,11 @@ button:hover {
 }
 
 .main_btn2 {
-    width: 200px;
-    height: 70px;
+    width: 500px;
+    height: 200px;
     border-radius: 15px;
-    font-size: 30px;
-    margin: 30px auto;
+    font-size: 50px;
+    margin: 50px auto;
 }
 
 
