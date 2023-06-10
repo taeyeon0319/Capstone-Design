@@ -4,7 +4,6 @@ from django.contrib import messages
 
 tapNumber = 0
 
-
 def menu(request):
     menus_1 = Menu.objects.filter(category="오넛지")
     menus_2 = Menu.objects.filter(category="카츠")
