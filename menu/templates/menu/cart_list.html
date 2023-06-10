@@ -15,7 +15,7 @@
     {% for cart in carts %}
     <div class="card"  onmouseover="speakText('{{cart.name}} {{cart.price}} 원  삭제하시려면 메뉴를 누르세요')"
     onmouseleave="stopSpeaking();">
-        <a href="{% url 'menu:delete2' cart.id %}">
+        <a href="{% url 'menu:delete2' cart.id %}" style="text-decoration: none; color:black">
             <img src="https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c52796b3-76cc-444e-b7bb-6b52e171e0a1.png"
                 class="card-img-top" alt="...">
             <div class="card-body">
