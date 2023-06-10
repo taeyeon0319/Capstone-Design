@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="header">
-    <a href="{% url 'menu:cart_delete' %}"><button class="back">처음</button></a>
+    <a href="{% url 'menu:cart_delete' %}"><button class="back" onmouseover="speakText('처음')">처음</button></a>
 </div>
 
 <div class="menu_container">
@@ -12,6 +12,7 @@
         <button {%if tapNumber == "0"%}{%endif%} id="defaultOpen" class="tablinks" onclick="moveInTabs(event,'category_1')">오넛지</button>
         <button {%if tapNumber == "1"%}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')">카츠</button>
         <button {%if tapNumber == "2"%}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')">더푸리</button>
+
     </nav>
 
     <div id="category_1" class="tabcontent">
@@ -19,7 +20,7 @@
             {% for menu in menus_1 %}
             <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
-                <button type="submit" class="menu">
+                <button type="submit" class="menu" onmouseover="speakText('{{menu.name}}'); speakText('{{menu.price}}원')" onmouseleave="stopSpeaking();">
                     <input type="hidden" name="tapNumber" value="0" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
@@ -37,7 +38,7 @@
             {% for menu in menus_2 %}
             <form action="{% url 'menu:cart_push' %}" method="post">
                 {% csrf_token %}
-                <button type="submit" class="menu">
+                <button type="submit" class="menu" onmouseover="speakText('{{menu.name}}'); speakText('{{menu.price}}원')">
                     <input type="hidden" name="tapNumber" value="1" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
@@ -55,7 +56,7 @@
             {% for menu in menus_3 %}
             <form action="{% url 'menu:cart_push' %}" method="post">
                 {% csrf_token %}
-                <button type="submit" class="menu">
+                <button type="submit" class="menu" onmouseover="speakText('{{menu.name}}'); speakText('{{menu.price}}원')">
                     <input type="hidden" name="tapNumber" value="2" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
