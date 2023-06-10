@@ -4,8 +4,6 @@ from django.contrib import messages
 
 tapNumber = 0
 
-# Create your views here.
-
 
 def menu(request):
     menus_1 = Menu.objects.filter(category="오넛지")
