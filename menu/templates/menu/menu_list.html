@@ -9,9 +9,10 @@
 
 <div class="menu_container">
     <nav class="menu_category">
-        <button {%if tapNumber == "0"%}id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_1')" onmouseover="speakText('오넛지')">오넛지</button>
-        <button {%if tapNumber == "1"%}id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')" onmouseover="speakText('카츠')">카츠</button>
-        <button {%if tapNumber == "2"%}id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')" onmouseover="speakText('더푸리')">더푸리</button>
+        <button {%if tapNumber == "0"%}{%endif%} id="defaultOpen" class="tablinks" onclick="moveInTabs(event,'category_1')">오넛지</button>
+        <button {%if tapNumber == "1"%}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')">카츠</button>
+        <button {%if tapNumber == "2"%}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')">더푸리</button>
+
     </nav>
 
     <div id="category_1" class="tabcontent">
