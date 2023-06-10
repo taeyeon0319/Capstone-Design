@@ -17,6 +17,7 @@ function stopSpeaking() {
     }
 }
 
+
 const category_1 = document.getElementById('category_1');
 const category_2 = document.getElementById('category_2');
 const category_3 = document.getElementById('category_3');

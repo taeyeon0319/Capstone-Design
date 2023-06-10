@@ -31,6 +31,7 @@ def cart_push(request):
     new_cart = Cart()
     new_cart.name = request.POST.get("name")
     new_cart.price = request.POST.get("price")
+    new_cart.image = request.POST.get("image_url")
     tapNumber = request.POST.get("tapNumber")
     new_cart.save()
 

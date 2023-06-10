@@ -26,3 +26,4 @@ class Cart(models.Model):
 class Cart(models.Model):
     name = models.CharField(max_length=250) #메뉴명
     price = models.IntegerField()
+    image = models.TextField()

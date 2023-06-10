@@ -4,14 +4,19 @@
 
 {% block content %}
 <div class="header">
-    <a href="{% url 'menu:cart_delete' %}"><button class="back" onmouseover="speakText('처음')" onmouseleave="stopSpeaking();">처음</button></a>
+    <a href="{% url 'menu:cart_delete' %}"><button class="back" onmouseover="speakText('처음')"
+            onmouseleave="stopSpeaking();">처음</button></a>
 </div>
 
 <div class="menu_container">
     <nav class="menu_category">
-        <button {%if tapNumber == "0"%}{%endif%} id="defaultOpen" class="tablinks" onclick="moveInTabs(event,'category_1')" onmouseover="speakText('오넛지')" onmouseleave="stopSpeaking();">오넛지</button>
-        <button {%if tapNumber == "1"%}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')" onmouseover="speakText('카츠')" onmouseleave="stopSpeaking();">카츠</button>
-        <button {%if tapNumber == "2"%}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')" onmouseover="speakText('더푸리')" onmouseleave="stopSpeaking();">더푸리</button>
+        <button {%if tapNumber == "0" %}{%endif%} id="defaultOpen" class="tablinks"
+            onclick="moveInTabs(event,'category_1')" onmouseover="speakText('오넛지')"
+            onmouseleave="stopSpeaking();">오넛지</button>
+        <button {%if tapNumber == "1" %}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')"
+            onmouseover="speakText('카츠')" onmouseleave="stopSpeaking();">카츠</button>
+        <button {%if tapNumber == "2" %}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')"
+            onmouseover="speakText('더푸리')" onmouseleave="stopSpeaking();">더푸리</button>
     </nav>
 
     <div id="category_1" class="tabcontent">
@@ -19,28 +24,33 @@
             {% for menu in menus_1 %}
             <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
-                <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')" onmouseleave="stopSpeaking();">
+                <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
+                    onmouseleave="stopSpeaking();">
                     <input type="hidden" name="tapNumber" value="0" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
+                    <input type="hidden" name="image_url" value="{{ menu.image.url }}" />
                     <img src="{{ menu.image.url }}" alt="메뉴 사진">
                     <div class="menuname">{{menu.name}}</div>
                     <div class="menuprice">{{menu.price}}원</div>
                 </button>
             </form>
             {% endfor %}
+
         </div>
     </div>
-    
+
     <div id="category_2" class="tabcontent">
         <div class="menu_group">
             {% for menu in menus_2 %}
-            <form action="{% url 'menu:cart_push' %}" method="post">
+            <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
-                <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')" onmouseleave="stopSpeaking();">
-                    <input type="hidden" name="tapNumber" value="1" />
+                <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
+                    onmouseleave="stopSpeaking();">
+                    <input type="hidden" name="tapNumber" value="0" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
+                    <input type="hidden" name="image_url" value="{{ menu.image.url }}" />
                     <img src="{{ menu.image.url }}" alt="메뉴 사진">
                     <div class="menuname">{{menu.name}}</div>
                     <div class="menuprice">{{menu.price}}원</div>
@@ -53,12 +63,14 @@
     <div id="category_3" class="tabcontent">
         <div class="menu_group">
             {% for menu in menus_3 %}
-            <form action="{% url 'menu:cart_push' %}" method="post">
+            <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
-                <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')" onmouseleave="stopSpeaking();">
-                    <input type="hidden" name="tapNumber" value="2" />
+                <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
+                    onmouseleave="stopSpeaking();">
+                    <input type="hidden" name="tapNumber" value="0" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
+                    <input type="hidden" name="image_url" value="{{ menu.image.url }}" />
                     <img src="{{ menu.image.url }}" alt="메뉴 사진">
                     <div class="menuname">{{menu.name}}</div>
                     <div class="menuprice">{{menu.price}}원</div>
@@ -68,17 +80,17 @@
         </div>
     </div>
 
-<div class="payContainer">
-    <div class="cart" style="background-color: white;">
-        {% for cart in carts %}
-        <p id="cart_name">{{cart.name}} &nbsp;&nbsp;{{cart.price}}원
-            <a href="{% url 'menu:delete' cart.id %}"><button id="cart_delete">삭제하기</button></a>
-            <br>
-        </p>
-        {% endfor %}
-
+    <div class="payContainer">
+        <div class="cart" style="background-color: white;">
+            {% for cart in carts %}
+            <p id="cart_name">{{cart.name}} &nbsp;&nbsp;{{cart.price}}원
+                <a href="{% url 'menu:delete' cart.id %}"><button id="cart_delete">삭제하기</button></a>
+                <br>
+            </p>
+            {% endfor %}
+        </div>
+        <a href="{% url 'main:cart_list' %}"><button class="pay" style="background-color: white;"
+                onmouseover="speakText('결제하기')" onmouseleave="stopSpeaking();">결제하기</button></a>
     </div>
-    <a href="{% url 'main:cart_list' %}"><button class="pay" style="background-color: white;" onmouseover="speakText('결제하기')" onmouseleave="stopSpeaking();">결제하기</button></a>
-</div>
 
-{% endblock %}
+    {% endblock %}
