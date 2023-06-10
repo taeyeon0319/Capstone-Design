@@ -78,7 +78,7 @@
         {% endfor %}
 
     </div>
-    <a href="{% url 'main:cart_list' %}"><button class="pay" style="background-color: white;">결제하기</button></a>
+    <a href="{% url 'main:cart_list' %}"><button class="pay" style="background-color: white;" onmouseover="speakText('결제하기')" onmouseleave="stopSpeaking();">결제하기</button></a>
 </div>
 
 {% endblock %}
