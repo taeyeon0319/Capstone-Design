@@ -12,12 +12,12 @@
     <div id="btn_set">
         <a href="{% url 'menu:menu' %}">
             <div id="btn2">
-                <button class="main_btn" onmouseover="speakText('주문하기')">주문하기</button>
+                <button class="main_btn" onmouseover="speakText('주문하기')" onmouseleave="stopSpeaking();">주문하기</button>
             </div>
         </a>
         <a href="{% url 'main:employee_call' %}">
             <div id="btn2">
-                <button class="main_btn2" onmouseover="speakText('직원호출')">직원호출</button>
+                <button class="main_btn2" onmouseover="speakText('직원호출')" onmouseleave="stopSpeaking();">직원호출</button>
             </div>
         </a>
     </div>
