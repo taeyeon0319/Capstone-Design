@@ -68,25 +68,6 @@
         </div>
     </div>
 
-    <div id="category_4" class="tabcontent">
-        <div class="menu_group">
-            {% for menu in menus_4 %}
-            <form action="{% url 'menu:cart_push' %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="menu">
-                    <input type="hidden" name="tapNumber" value="3" />
-                    <input type="hidden" name="name" value="{{ menu.name }}">
-                    <input type="hidden" name="price" value="{{ menu.price }}">
-                    <img src="{{ menu.image.url }}" alt="메뉴 사진">
-                    <div class="menuname">{{menu.name}}</div>
-                    <div class="menuprice">{{menu.price}}원</div>
-                </button>
-            </form>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-
 <div class="payContainer">
     <div class="cart" style="background-color: white;">
         {% for cart in carts %}

@@ -1,3 +1,9 @@
+// TTS로 텍스트 읽기 함수
+function speakText(text) {
+    var utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
+}
+
 const category_1 = document.getElementById('category_1');
 const category_2 = document.getElementById('category_2');
 const category_3 = document.getElementById('category_3');
