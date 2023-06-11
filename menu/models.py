@@ -6,7 +6,6 @@ class Menu(models.Model):
         ('오넛지', '오넛지'),
         ('카츠', '카츠'),
         ('더푸리', '더푸리'),
-        ('카페', '카페'),
 
     )
     name = models.CharField('메뉴명', max_length=250, unique=True) #메뉴명
@@ -26,3 +25,4 @@ class Cart(models.Model):
 class Cart(models.Model):
     name = models.CharField(max_length=250) #메뉴명
     price = models.IntegerField()
+    image = models.TextField()

@@ -4,24 +4,29 @@
 
 {% block content %}
 <div class="header">
-    <a href="{% url 'menu:menu' %}"><button class="back">이전</button></a>
-    <a href="{% url 'menu:cart_delete' %}"><button class="back">처음</button></a>
+    <a href="{% url 'menu:menu' %}"><button class="back" onmouseover="speakText('이전')"
+            onmouseleave="stopSpeaking();">이전</button></a>
+    <a href="{% url 'menu:cart_delete' %}"><button class="back" onmouseover="speakText('처음')"
+            onmouseleave="stopSpeaking();">처음</button></a>
 </div>
 {% comment %} <p id="subject">주문 내역 확인하기</p> {% endcomment %}
 <div class="cardContainer">
-
-{% for cart in carts %}
-<div class="card">
-    <img src="https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c52796b3-76cc-444e-b7bb-6b52e171e0a1.png" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{cart.name}}</h5>
-        <p class="card-text">{{cart.price}}</p>
-        <p class="card-text">수량</p>
+    {% for cart in carts %}
+    <div class="card"  onmouseover="speakText('{{cart.name}} {{cart.price}} 원  삭제하시려면 메뉴를 누르세요')"
+    onmouseleave="stopSpeaking();">
+        <a href="{% url 'menu:delete2' cart.id %}" style="text-decoration: none; color:black">
+            <img src="{{ cart.image }}"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{cart.name}}</h5>
+                <p class="card-text">{{cart.price}}원</p>
+            </div>
+            <button id="cart_delete" class="cart_delete_btn">삭제하기</button>
+        </a>
     </div>
-    <a href="{% url 'menu:delete2' cart.id %}"><button id="cart_delete" class="cart_delete_btn">삭제하기</button></a>
-</div>
-{% endfor %}
+    {% endfor %}
 
 </div>
-<a href="{% url 'main:pay' %}"><button id="pay_btn">결제하기</button></a>
+<a href="{% url 'main:pay' %}"><button id="pay_btn" onmouseover="speakText('결제하기')"
+        onmouseleave="stopSpeaking();">결제하기</button></a>
 {% endblock %}

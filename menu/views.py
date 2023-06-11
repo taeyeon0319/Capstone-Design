@@ -2,28 +2,29 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 
-tapNumber = 0
-
-
+tapNumber = "0"
+# tapNumber 처음 탭으로 초기화
 def menu(request):
+    global tapNumber
     menus_1 = Menu.objects.filter(category="오넛지")
     menus_2 = Menu.objects.filter(category="카츠")
     menus_3 = Menu.objects.filter(category="더푸리")
-    menus_4 = Menu.objects.filter(category="카페")
     carts = Cart.objects.all()
     return render(request, 'menu/menu_list.html',
-                  {'menus_1': menus_1,
-                   'menus_2': menus_2,
-                   'menus_3': menus_3,
-                   'menus_4': menus_4,
-                   'carts': carts,
-                   'tapNumber': tapNumber})
+                    {'menus_1': menus_1,
+                    'menus_2': menus_2,
+                    'menus_3': menus_3,
+                    'carts': carts,
+                    'tapNumber': tapNumber})
+
 
 
 def cart_push(request):
     global tapNumber
 
     cart_count = Cart.objects.count()
+    tapNumber = request.POST.get("tapNumber")
+    #tapNumber 받아온 후, 
     if cart_count >= 6:
         messages.error(request, "Cart 모델 개수가 6개를 초과했습니다.")
         return redirect('menu:menu')
@@ -31,7 +32,7 @@ def cart_push(request):
     new_cart = Cart()
     new_cart.name = request.POST.get("name")
     new_cart.price = request.POST.get("price")
-    tapNumber = request.POST.get("tapNumber")
+    new_cart.image = request.POST.get("image_url")
     new_cart.save()
 
     return redirect('menu:menu')

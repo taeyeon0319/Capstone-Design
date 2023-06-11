@@ -1,14 +1,18 @@
 <!--완료화면-->
 {% extends 'base.html' %}
 {% load static %}
-
+{% comment %} 결재 화면 완료 페이지와 1-10000사이 수를 랜덤으로 출력한다. {% endcomment %}
 {% block content %}
 <div class="finalPageContainer">
-    <a href="{% url 'menu:cart_delete' %}"><button class="back">처음</button></a>
-    <div class="text">결제가<br>완료되었습니다</div>
+    <a href="{% url 'menu:cart_delete' %}"><button class="back" onmouseover="speakText('처음')"
+        onmouseleave="stopSpeaking();">처음</button></a>
+    <div class="text">결제가<br>완료되었습니다. <br><span id="randomNumber"></span> </div>
     <script>
-        var jbRandom = Math.random();
-        document.write('<p>' + Math.floor(jbRandom * 10000) + '</p>');
+        var utterance = new SpeechSynthesisUtterance();
+        var randomNumber = Math.floor(Math.random() * 10000);
+        utterance.text = '결제가 완료되었습니다. 번호는 ' + randomNumber + '번 입니다.';
+        window.speechSynthesis.speak(utterance);
+        document.getElementById('randomNumber').innerText = randomNumber;
     </script>
 </div>
 

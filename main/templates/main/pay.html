@@ -5,11 +5,15 @@
 {% block content %}
 
 <div class="pageButtonContainer">
-    <a href="{% url 'main:cart_list' %}"><button class="back"  style="width:390px">이전</button></a>
-    <a href="{% url 'menu:cart_delete' %}"><button class="back"  style="width:390px">처음</button></a>
+    <a href="{% url 'main:cart_list' %}"><button class="back"  style="width:390px" onmouseover="speakText('이전')"
+        onmouseleave="stopSpeaking();">이전</button></a>
+    <a href="{% url 'menu:cart_delete' %}"><button class="back"  style="width:390px" onmouseover="speakText('처음')"
+        onmouseleave="stopSpeaking();">처음</button></a>
 </div>
 
-<a href="{% url 'main:final' %}"><button id="Card">카드</button></a>
-<a href="{% url 'main:final' %}"><button id="Cash">현금</button></a>
+<a href="{% url 'main:final' %}"><button id="Card" onmouseover="speakText('카드')"
+    onmouseleave="stopSpeaking();">카드</button></a>
+<a href="{% url 'main:final' %}"><button id="Cash" onmouseover="speakText('현금')"
+    onmouseleave="stopSpeaking();">현금</button></a>
 
 {% endblock %}
