@@ -7,18 +7,16 @@
     <a href="{% url 'menu:cart_delete' %}"><button class="back" onmouseover="speakText('처음')"
             onmouseleave="stopSpeaking();">처음</button></a>
 </div>
-
+{% comment %} 탭 카테고리 버튼 {% endcomment %}
 <div class="menu_container">
     <nav class="menu_category">
-        <button {%if tapNumber == "0" %}{%endif%} id="defaultOpen" class="tablinks"
-            onclick="moveInTabs(event,'category_1')" onmouseover="speakText('오넛지')"
-            onmouseleave="stopSpeaking();">오넛지</button>
-        <button {%if tapNumber == "1" %}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')"
-            onmouseover="speakText('카츠')" onmouseleave="stopSpeaking();">카츠</button>
-        <button {%if tapNumber == "2" %}{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')"
-            onmouseover="speakText('더푸리')" onmouseleave="stopSpeaking();">더푸리</button>
+        {% comment %} tapNumber에 따라 해당 탭 화면 open {% endcomment %}
+        <button {%if tapNumber == "0" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_1')">오넛지</button>
+        <button {%if tapNumber == "1" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')">카츠</button>
+        <button {%if tapNumber == "2" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')">더푸리</button>
     </nav>
 
+{% comment %} 오넛지 탭 메뉴 {% endcomment %}
     <div id="category_1" class="tabcontent">
         <div class="menu_group">
             {% for menu in menus_1 %}
@@ -26,6 +24,7 @@
                 {% csrf_token %}
                 <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
                     onmouseleave="stopSpeaking();">
+                    {% comment %} category_1의 모든 메뉴에 value가 0 {% endcomment %}
                     <input type="hidden" name="tapNumber" value="0" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
@@ -39,7 +38,7 @@
 
         </div>
     </div>
-
+{% comment %} 카츠 탭 메뉴 {% endcomment %}
     <div id="category_2" class="tabcontent">
         <div class="menu_group">
             {% for menu in menus_2 %}
@@ -47,7 +46,8 @@
                 {% csrf_token %}
                 <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
                     onmouseleave="stopSpeaking();">
-                    <input type="hidden" name="tapNumber" value="0" />
+                    {% comment %} category_2의 모든 메뉴에 value가 1 {% endcomment %}
+                    <input type="hidden" name="tapNumber" value="1" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
                     <input type="hidden" name="image_url" value="{{ menu.image.url }}" />
@@ -59,7 +59,7 @@
             {% endfor %}
         </div>
     </div>
-
+{% comment %} 더푸리 탭 메뉴 {% endcomment %}
     <div id="category_3" class="tabcontent">
         <div class="menu_group">
             {% for menu in menus_3 %}
@@ -67,7 +67,8 @@
                 {% csrf_token %}
                 <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
                     onmouseleave="stopSpeaking();">
-                    <input type="hidden" name="tapNumber" value="0" />
+                    {% comment %} category_3의 모든 메뉴에 value가 2 {% endcomment %}
+                    <input type="hidden" name="tapNumber" value="2" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
                     <input type="hidden" name="image_url" value="{{ menu.image.url }}" />
@@ -79,7 +80,7 @@
             {% endfor %}
         </div>
     </div>
-
+{% comment %} 카트와 결제하기 {% endcomment %}
     <div class="payContainer">
         <div class="cart" style="background-color: white;">
             {% for cart in carts %}
