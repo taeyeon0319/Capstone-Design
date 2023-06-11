@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 
-tapNumber = 0
+tapNumber = "0"
 
 def menu(request):
+    global tapNumber
     menus_1 = Menu.objects.filter(category="오넛지")
     menus_2 = Menu.objects.filter(category="카츠")
     menus_3 = Menu.objects.filter(category="더푸리")
@@ -22,6 +23,8 @@ def cart_push(request):
     global tapNumber
 
     cart_count = Cart.objects.count()
+    tapNumber = request.POST.get("tapNumber")
+    
     if cart_count >= 6:
         messages.error(request, "Cart 모델 개수가 6개를 초과했습니다.")
         return redirect('menu:menu')
@@ -30,7 +33,6 @@ def cart_push(request):
     new_cart.name = request.POST.get("name")
     new_cart.price = request.POST.get("price")
     new_cart.image = request.POST.get("image_url")
-    tapNumber = request.POST.get("tapNumber")
     new_cart.save()
 
     return redirect('menu:menu')
