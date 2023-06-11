@@ -3,7 +3,7 @@ from .models import *
 from django.contrib import messages
 
 tapNumber = "0"
-
+# tapNumber 처음 탭으로 초기화
 def menu(request):
     global tapNumber
     menus_1 = Menu.objects.filter(category="오넛지")
@@ -24,7 +24,7 @@ def cart_push(request):
 
     cart_count = Cart.objects.count()
     tapNumber = request.POST.get("tapNumber")
-    
+    #tapNumber 받아온 후, 
     if cart_count >= 6:
         messages.error(request, "Cart 모델 개수가 6개를 초과했습니다.")
         return redirect('menu:menu')
