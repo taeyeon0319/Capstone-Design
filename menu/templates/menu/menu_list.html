@@ -82,9 +82,9 @@
     </div>
 {% comment %} 카트와 결제하기 {% endcomment %}
     <div class="payContainer">
-        <div class="cart" style="background-color: white;"> 
+        <div class="cart" style="background-color: white;" onmouseover="speakCartNames()" onmouseleave="stopSpeaking2();">
             {% for cart in carts %}
-            <p id="cart_name">{{cart.name}} &nbsp;&nbsp;{{cart.price}}원
+            <p id="cart_name"><span id="cart_name_2">{{cart.name}}</span> &nbsp;&nbsp;{{cart.price}}원
                 <a href="{% url 'menu:delete' cart.id %}"><button id="cart_delete">삭제하기</button></a>
                 <br>
             </p>
@@ -93,5 +93,24 @@
         <a href="{% url 'main:cart_list' %}"><button class="pay" style="background-color: white;"
                 onmouseover="speakText('결제하기')" onmouseleave="stopSpeaking();">결제하기</button></a>
     </div>
-
+    
+    <script>
+        var utterance;
+    
+        function speakCartNames() {
+            var cartNames = document.querySelectorAll('.cart #cart_name_2');
+            var names = [];
+            for (var i = 0; i < cartNames.length; i++) {
+                names.push(cartNames[i].textContent.trim());
+            }
+            utterance = new SpeechSynthesisUtterance(names.join(' ')+"가 장바구니에 들어있습니다.");
+            window.speechSynthesis.speak(utterance);
+        }
+    
+        function stopSpeaking2() {
+            if (utterance) {
+                window.speechSynthesis.cancel();
+            }
+        }
+    </script>
     {% endblock %}

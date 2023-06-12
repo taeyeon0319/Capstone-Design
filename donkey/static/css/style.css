@@ -1,266 +1,281 @@
-*{
-    font-weight: 800;
+* {
+  font-weight: 800;
 }
 
 /*base.html*/
 body {
-    background-color: beige;
+  background-color: beige;
 }
 
-#kiosk_size{
-    background-color: orange;
-    width:800px;
-    height:1300px;
-    margin:50px auto;
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    overflow-y:scroll;
-
+#kiosk_size {
+  background-color: orange;
+  width: 800px;
+  height: 1300px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
 }
 
 #kiosk_size::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /*mainpage.html*/
 #logo {
-    width: fit-content;
-    margin: 100px auto 130px;
+  width: fit-content;
+  margin: 100px auto 130px;
 }
 
 #logo_img {
-    width: 700px;
+  width: 700px;
 }
 
 #btn_set {
-    width: 800px;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top:-50px;
+  width: 800px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -50px;
 }
 
 .main_btn {
-    width: 700px;
-    height: 150px;
-    border-radius: 15px;
-    margin: 30px auto;
+  width: 700px;
+  height: 150px;
+  border-radius: 15px;
+  margin: 30px auto;
 
-    font-size: 100px;
-
+  font-size: 100px;
 }
 
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #btn2 {
-    width: fit-content;
-    margin: 0 auto;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .main_btn2 {
-    width: 500px;
-    height: 200px;
-    border-radius: 15px;
-    font-size: 50px;
-    margin: 50px auto;
+  width: 500px;
+  height: 200px;
+  border-radius: 15px;
+  font-size: 50px;
+  margin: 50px auto;
 }
-
 
 /*menu_list.html*/
 .header {
-    height: 15%;
-    width: 100%;
-    background-color: rgba(252, 197, 94, 0.5);
-    display: flex;
-    justify-content: end;
+  height: 15%;
+  width: 100%;
+  background-color: rgba(252, 197, 94, 0.5);
+  display: flex;
+  justify-content: end;
 }
 
 .back {
-    margin:5px;
-    width: 390px;
-    height: 187px;
-    font-size: 80px;
-    border-radius: 20px;
+  margin: 5px;
+  width: 390px;
+  height: 187px;
+  font-size: 80px;
+  border-radius: 20px;
 }
 
 .menu_container {
-    width: 100%;
-    height: 70%;
-    background-color: rgba(252, 197, 94, 0.5);
+  width: 100%;
+  height: 70%;
+  background-color: rgba(252, 197, 94, 0.5);
 }
 
 .menu_category {
-    height: 17.5%;
-    display: flex;
-    justify-content:left ;
-    border-bottom: none;
+  height: 17.5%;
+  display: flex;
+  justify-content: left;
+  border-bottom: none;
 }
 
 .menu_category button {
-    display: block;
-    width: 33.33%;
-    background-color:orange;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    cursor: pointer;
-    text-align: center;
-    line-height: 100px;
-    font-size: 40px;
+  display: block;
+  width: 33.33%;
+  background-color: orange;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 100px;
+  font-size: 40px;
 }
 
 .tablinks {
-    border-bottom: 3px solid #000;
+  border-bottom: 3px solid #000;
 }
 
 .tablinks:first-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .menu_group {
-    display: grid;
-    height: 17.5%;
-    grid-template-columns: 33.33% 33.33% 33.33%;
-    justify-content: space-evenly;
+  display: grid;
+  height: 17.5%;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  justify-content: space-evenly;
 }
 
 .menu {
-    background-color: white;
-    border-radius: 10%;
-    font-size: 25px;
-    text-align: center;
-    width: 250px;
-    height: 230px;
-    margin:13px;
+  background-color: white;
+  border-radius: 10%;
+  font-size: 25px;
+  text-align: center;
+  width: 250px;
+  height: 230px;
+  margin: 13px;
 }
 
 .menu img {
-    width: 130px;
-    height: 100px;
-    display: block;
-    margin:0 auto;
+  width: 130px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
 }
 
 .payContainer {
-    height: 15%;
-    width: 100%;
-    background-color: rgba(252, 197, 94, 0.5);
-    display: flex;
-    justify-content: space-between;
+  height: 15%;
+  width: 100%;
+  background-color: rgba(252, 197, 94, 0.5);
+  display: flex;
+  justify-content: space-between;
 }
 .payContainer .cart {
-    height: 85%;
-    width: 80%;
-    background-color: white;
-    margin: 10px;
-    overflow-y: scroll;
+  height: 85%;
+  width: 80%;
+  background-color: white;
+  margin: 10px;
+  overflow-y: scroll;
 }
 .payContainer .pay {
-    height: 85%;
-    width: 120px;
-    margin: 10px;
-    font-size: 40px;
+  height: 85%;
+  width: 120px;
+  margin: 10px;
+  font-size: 40px;
 }
 .payContainer button {
-    background-color:rgba(252, 197, 94, 0.2) ;
+  background-color: rgba(252, 197, 94, 0.2);
 }
 
 .menuname {
-    font-size: 27px;
+  font-size: 27px;
 }
 .menuprice {
-    font-size: 25px;
+  font-size: 25px;
 }
 .tabcontent {
-    height:90%;
-    background-color: orange;
+  height: 90%;
+  background-color: orange;
 }
 
 /*cart_list.html*/
-/* #subject{
-    padding : 10px;
-    font-size: 50px;
-    font-weight: bold;
-    color: white;
-} */
 
-
-.cartBackButton{
-    height: 300px;
+.cartBackButton {
+  height: 300px;
 }
-.cardContainer{
-    width: 800px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.cardContainer {
+  width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-.card{
-    height: 500px;
-    border-left: 1px solid rgba(0,0,0);
-    border-bottom: 1px solid rgba(0,0,0);
-    border-top: 1px solid rgba(0,0,0);
-    margin-bottom: 5px;
+.card {
+  height: 500px;
+  border-left: 1px solid rgba(0, 0, 0);
+  border-bottom: 1px solid rgba(0, 0, 0);
+  border-top: 1px solid rgba(0, 0, 0);
+  margin-bottom: 5px;
 }
-.card:last-child, .card:nth-child(3n){
-    border-right: 1px solid rgba(0,0,0);
+.card:last-child,
+.card:nth-child(3n) {
+  border-right: 1px solid rgba(0, 0, 0);
 }
-.card-img-top{
-    width: 100%;
+.card-img-top {
+  width: 100%;
+  height: 250px;
 }
-.card-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 30px;
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
 }
 
-#pay_btn{
-    border-radius: 20px;
-    border : 1px solid black;
-    padding: 5px 250px;
-    font-size: 50px;
+#pay_btn {
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 5px 250px;
+  font-size: 50px;
+
+  position: fixed;
+        left: 50%;
+        bottom: 145px;
+        transform: translateX(-50%);
 }
-.card-title{
-    margin: 10px;
-    padding: 0px;
-    font-size: 30px;
+.card-title {
+  margin: 10px;
+  padding: 0px;
+  font-size: 30px;
 }
-.card-text{
-    margin: 10px;
-    padding: 0px;
+.card-text {
+  margin: 10px;
+  padding: 0px;
 }
-.cart_delete_btn{
-    width: 100%;
-    height: 92px;
-    font-size: 50px;
-    border: none;
+.cart_delete_btn {
+  width: 100%;
+  height: 92px;
+  font-size: 50px;
+  border: none;
+  margin-top:10px;
 }
 /* pay.html  */
-.pageButtonContainer{
-    display: flex;
+.pageButtonContainer {
+  display: flex;
 }
-#goToPreviousPage,#goToFirstPage{
-    width: 400px;
-    height: 250px;
-    font-size: 100px;
-    background-color: orange;
+#goToPreviousPage,
+#goToFirstPage {
+  width: 400px;
+  height: 250px;
+  font-size: 100px;
+  background-color: orange;
 }
-#Card, #Cash {
-    width: 800px;
-    height: 525px;
-    font-size: 100px;
-    background-color: orange;
-    margin-bottom: 5px;
-}
-/* final */
-.finalPageContainer{
-    font-size: 80px;  
-    text-align : center;
-    padding-top: 30px;
+#Card,
+#Cash {
+  width: 800px;
+  height: 545px;
+  font-size: 100px;
+  background-color: orange;
+  margin-bottom: 5px;
+  color:white;
 }
 
-.text{
-    margin-top:400px;
+#Card {
+    background-image: url("../img/카드.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 600px;
+}
+#Cash {
+  background-image: url("../img/현금.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 600px;
+}
+
+/* final */
+.finalPageContainer {
+  font-size: 80px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.text {
+  margin-top: 400px;
 }
