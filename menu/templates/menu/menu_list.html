@@ -23,7 +23,7 @@
             <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
                 <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
-                    onmouseleave="stopSpeaking();">
+                    onmouseleave="stopSpeaking();" onclick="speakText('{{menu.name}}을 선택했습니다.')">
                     {% comment %} category_1의 모든 메뉴에 value가 0 {% endcomment %}
                     <input type="hidden" name="tapNumber" value="0" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
@@ -45,7 +45,7 @@
             <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
                 <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
-                    onmouseleave="stopSpeaking();">
+                    onmouseleave="stopSpeaking();" onclick="speakText('{{menu.name}}을 선택했습니다.')">
                     {% comment %} category_2의 모든 메뉴에 value가 1 {% endcomment %}
                     <input type="hidden" name="tapNumber" value="1" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
@@ -66,7 +66,7 @@
             <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
                 <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
-                    onmouseleave="stopSpeaking();">
+                    onmouseleave="stopSpeaking();" onclick="speakText('{{menu.name}}을 선택했습니다.')">
                     {% comment %} category_3의 모든 메뉴에 value가 2 {% endcomment %}
                     <input type="hidden" name="tapNumber" value="2" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
