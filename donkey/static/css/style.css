@@ -213,11 +213,6 @@ button:hover {
   border: 1px solid black;
   padding: 5px 250px;
   font-size: 50px;
-
-  position: fixed;
-        left: 50%;
-        bottom: 145px;
-        transform: translateX(-50%);
 }
 .card-title {
   margin: 10px;

@@ -9,20 +9,12 @@ class Menu(models.Model):
 
     )
     name = models.CharField('메뉴명', max_length=250, unique=True) #메뉴명
-    price = models.IntegerField() #메뉴가격
-    #info = models.TextField() #메뉴설명
+    price = models.IntegerField() #가격
     category = models.CharField(max_length=5, choices=CATEGORY) #카테고리
-    #음식이미지 
-    image = models.ImageField(upload_to="menu/")
+    image = models.ImageField(upload_to="menu/") #음식이미지
 
-'''
-cart 앱 만들고 따로 관리
-class Cart(models.Model):
-    menu = models.ForeignKey(Menu, models.SET_NULL, blank = True, null=True) #장바구니에 넣는 메뉴 
-    count = models.IntegerField() #메뉴 개수
-    
-'''
+
 class Cart(models.Model):
     name = models.CharField(max_length=250) #메뉴명
-    price = models.IntegerField()
-    image = models.TextField()
+    price = models.IntegerField() #가격
+    image = models.TextField() #음식이미지

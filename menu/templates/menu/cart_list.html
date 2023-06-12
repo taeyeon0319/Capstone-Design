@@ -9,8 +9,9 @@
     <a href="{% url 'menu:cart_delete' %}"><button class="back" onmouseover="speakText('처음')"
             onmouseleave="stopSpeaking();">처음</button></a>
 </div>
-{% comment %} <p id="subject">주문 내역 확인하기</p> {% endcomment %}
+<!-- 주문 내역 확인하기 -->
 <div class="cardContainer">
+    <!-- cart모델에 있는 모든 데이터들을 출력함 -->
     {% for cart in carts %}
     <div class="card"  onmouseover="speakText('{{cart.name}} {{cart.price}} 원  삭제하시려면 메뉴를 누르세요')"
     onmouseleave="stopSpeaking();">

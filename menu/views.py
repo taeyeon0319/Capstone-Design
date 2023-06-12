@@ -4,6 +4,8 @@ from django.contrib import messages
 
 tapNumber = "0"
 # tapNumber 처음 탭으로 초기화
+
+#menu모델 READ
 def menu(request):
     global tapNumber
     menus_1 = Menu.objects.filter(category="오넛지")
@@ -18,7 +20,7 @@ def menu(request):
                     'tapNumber': tapNumber})
 
 
-
+#cart모델 CREAT
 def cart_push(request):
     global tapNumber
 
@@ -37,24 +39,24 @@ def cart_push(request):
 
     return redirect('menu:menu')
 
-
+#Cart모델 DELETE
 def cart_delete(request):
     delete_cart = Cart.objects.all()
     delete_cart.delete()
     return redirect('main:mainpage')
 
-
+#Cart모델 READ
 def cart_list(request):
     carts = Cart.objects.all()
     return render(request, 'menu/cart_list.html', {'carts': carts})
 
-
+#Cart모델 DELETE
 def cart_delete_each(request, id):
     delete_cart_each = Cart.objects.get(id=id)
     delete_cart_each.delete()
     return redirect('menu:menu')
 
-
+#Cart모델 DELETE
 def cart_delete_each2(request, id):
     delete_cart_each = Cart.objects.get(id=id)
     delete_cart_each.delete()
