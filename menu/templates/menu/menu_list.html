@@ -82,7 +82,7 @@
     </div>
 {% comment %} 카트와 결제하기 {% endcomment %}
     <div class="payContainer">
-        <div class="cart" style="background-color: white;">
+        <div class="cart" style="background-color: white;"> 
             {% for cart in carts %}
             <p id="cart_name">{{cart.name}} &nbsp;&nbsp;{{cart.price}}원
                 <a href="{% url 'menu:delete' cart.id %}"><button id="cart_delete">삭제하기</button></a>
