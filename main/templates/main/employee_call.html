@@ -1,8 +1,35 @@
 <!--직원호출-->
 {% extends 'base.html' %}
 {% load static %}
-
+{% comment %} 결재 화면 완료 페이지와 1-10000사이 수를 랜덤으로 출력한다. {% endcomment %}
 {% block content %}
-직원호출
-(sms보내기로 알림??)
+<div class="finalPageContainer">
+    <div id="timerContainer" class="timerContainer"></div>
+    <a id="backLink" href="{% url 'menu:cart_delete' %}">
+        <button id="backButton" style="display: none;"></button>
+    </a>
+    <div class="text">직원을 호출합니다.<br><span>잠시만 기다려주세요.</span> </div>
+    <script>
+        var utterance = new SpeechSynthesisUtterance();
+        utterance.text = '직원을 호출합니다. 잠시만 기다려주세요.';
+        window.speechSynthesis.speak(utterance);
+
+        var timerContainer = document.getElementById('timerContainer');
+        var seconds = 10;
+        timerContainer.innerText = seconds + '초 후 처음화면으로 이동합니다.';
+        timerContainer.style.fontSize = '24px';
+
+        var timer = setInterval(function() {
+            seconds--;
+            timerContainer.innerText = seconds + '초 후 처음화면으로 이동합니다.';
+
+            if (seconds === 0) {
+                clearInterval(timer);
+                var backButton = document.getElementById('backButton');
+                backButton.click();
+            }
+        }, 1000);
+    </script>
+</div>
+
 {% endblock %}

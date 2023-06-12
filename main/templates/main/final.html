@@ -4,8 +4,10 @@
 {% comment %} 결재 화면 완료 페이지와 1-10000사이 수를 랜덤으로 출력한다. {% endcomment %}
 {% block content %}
 <div class="finalPageContainer">
-    <a href="{% url 'menu:cart_delete' %}"><button class="back" onmouseover="speakText('처음')"
-        onmouseleave="stopSpeaking();">처음</button></a>
+    <div id="timerContainer" class="timerContainer"></div>
+    <a id="backLink" href="{% url 'menu:cart_delete' %}">
+        <button id="backButton" style="display: none;"></button>
+    </a>
     <div class="text">결제가<br>완료되었습니다. <br><span id="randomNumber"></span> </div>
     <script>
         var utterance = new SpeechSynthesisUtterance();
@@ -13,6 +15,22 @@
         utterance.text = '결제가 완료되었습니다. 번호는 ' + randomNumber + '번 입니다.';
         window.speechSynthesis.speak(utterance);
         document.getElementById('randomNumber').innerText = randomNumber;
+
+        var timerContainer = document.getElementById('timerContainer');
+        var seconds = 10;
+        timerContainer.innerText = seconds + '초 후 처음화면으로 이동합니다.';
+        timerContainer.style.fontSize = '24px';
+
+        var timer = setInterval(function() {
+            seconds--;
+            timerContainer.innerText = seconds + '초 후 처음화면으로 이동합니다.';
+
+            if (seconds === 0) {
+                clearInterval(timer);
+                var backButton = document.getElementById('backButton');
+                backButton.click();
+            }
+        }, 1000);
     </script>
 </div>
 

@@ -11,9 +11,9 @@
 <div class="menu_container">
     <nav class="menu_category">
         {% comment %} tapNumber에 따라 해당 탭 화면 open {% endcomment %}
-        <button {%if tapNumber == "0" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_1')">오넛지</button>
-        <button {%if tapNumber == "1" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')">카츠</button>
-        <button {%if tapNumber == "2" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')">더푸리</button>
+        <button {%if tapNumber == "0" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_1')" onmouseover="speakText('오넛지')"onmouseleave="stopSpeaking();">오넛지</button>
+        <button {%if tapNumber == "1" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')" onmouseover="speakText('카츠')"onmouseleave="stopSpeaking();">카츠</button>
+        <button {%if tapNumber == "2" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')" onmouseover="speakText('더푸리')"onmouseleave="stopSpeaking();">더푸리</button>
     </nav>
 
 {% comment %} 오넛지 탭 메뉴 {% endcomment %}

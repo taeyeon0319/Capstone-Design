@@ -258,5 +258,9 @@ button:hover {
 .finalPageContainer{
     font-size: 80px;  
     text-align : center;
-    padding-top: 100px;
+    padding-top: 30px;
+}
+
+.text{
+    margin-top:400px;
 }
