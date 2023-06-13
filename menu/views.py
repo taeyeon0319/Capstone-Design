@@ -20,7 +20,7 @@ def menu(request):
                     'tapNumber': tapNumber})
 
 
-#cart모델 CREAT
+#cart모델 CREATE
 def cart_push(request):
     global tapNumber
 
