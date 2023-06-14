@@ -12,8 +12,8 @@
 </div>
 
 <a href="{% url 'main:final' %}"><button id="Card" onmouseover="speakText('카드')"
-    onmouseleave="stopSpeaking();"></button></a>
-<a href="{% url 'main:final' %}"><button id="Cash" onmouseover="speakText('현금')"
-    onmouseleave="stopSpeaking();"></button></a>
+    onmouseleave="stopSpeaking();"><span class="PayCard" >카드</span></button></a>
+<a href="{% url 'main:final' %}"><button id="Cash"  onmouseover="speakText('현금')"
+    onmouseleave="stopSpeaking();"><span class="PayCash">현금</span></button></a>
 
 {% endblock %}

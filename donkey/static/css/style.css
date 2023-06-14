@@ -143,7 +143,7 @@ button:hover {
 }
 
 .payContainer {
-  height: 15%;
+  height: 25%;
   width: 100%;
   background-color: rgba(252, 197, 94, 0.5);
   display: flex;
@@ -151,16 +151,21 @@ button:hover {
 }
 .payContainer .cart {
   height: 85%;
-  width: 80%;
+  width: 70%;
   background-color: white;
   margin: 10px;
   overflow-y: scroll;
 }
+#cart_name {
+  font-size: 23px;
+}
 .payContainer .pay {
   height: 85%;
-  width: 120px;
+  width: 250px;
   margin: 10px;
   font-size: 40px;
+  border-radius: 12%;
+  font-size: 50px;
 }
 .payContainer button {
   background-color: rgba(252, 197, 94, 0.2);
@@ -173,7 +178,7 @@ button:hover {
   font-size: 25px;
 }
 .tabcontent {
-  height: 90%;
+  height: 80%;
   background-color: orange;
 }
 
@@ -260,9 +265,12 @@ button:hover {
   font-size: 100px;
   background-color: orange;
   margin-bottom: 5px;
-  color:white;
+  color:black;
 }
-
+.PayCard, .PayCash{
+  background-color: white;
+  border-radius: 20%;
+}
 #Card {
     background-image: url("../img/카드.png");
   background-repeat: no-repeat;
