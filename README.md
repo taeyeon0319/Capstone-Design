@@ -25,17 +25,30 @@ urlpatterns = [
 > 프로젝트의 앱 등록, 사용자 등록, 언어/서버시간 설정 등의 프로젝트 내 웹 설정을 담당   
 
 ### 2. main 폴더
-#### main>templates
->   
+#### main>templates>main>....html
+> 모델이 필요없는 단순 페이지들을 모아둠.   
+> 직원호출(employee_call.html), 결제완료(final.html), 메인(mainpage.html), 결제(pay.html)
 
-### main>models.py
->   
 
 ### main>urls.py
->  
+```
+urlpatterns = [
+    path('', mainpage, name="mainpage"),
+    path('call/', employee_call, name="employee_call"),
+    path('cart/', cart_list, name="cart_list"),
+    path('pay/', pay, name="pay"),
+    path('final/', final, name="final"),
+]
+```
+
+> / : 메인페이지 url   
+> /call : 직원호출 페이지 url   
+> /cart : 장바구니 페이지 url   
+> /pay : 결제 페이지 url  
+> /final : 결제완료 페이지 url
 
 ### main>views.py
-> 
+> templates>main에 있는 모든 html페이지들을 url에 연결해줌
 
 ### 3. media 폴더
 #### media>cart
@@ -78,7 +91,3 @@ urlpatterns = [
 > cart_delete : cart모델 DELETE   
 > cart_list : cart모델 READ   
 > cart_delete_each(request, id) : 해당 id의 cart모델 DELETE   
-
-## 파일 설명
-
-## 웹 화면 소개
