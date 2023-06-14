@@ -10,7 +10,7 @@
             onmouseleave="stopSpeaking();">처음</button></a>
 </div>
 <!-- 주문 내역 확인하기 -->
-<div class="cardContainer">
+<div class="cardContainer" id="cardContainer">
     <!-- cart모델에 있는 모든 데이터들을 출력함 -->
     {% for cart in carts %}
     <div class="card"  onmouseover="speakText('{{cart.name}} {{cart.price}} 원  삭제하시려면 메뉴를 누르세요')"
