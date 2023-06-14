@@ -7,24 +7,25 @@
     <a href="{% url 'menu:cart_delete' %}"><button class="back" onmouseover="speakText('처음')"
             onmouseleave="stopSpeaking();">처음</button></a>
 </div>
-{% comment %} 탭 카테고리 버튼 {% endcomment %}
+<!-- 탭 카테고리 버튼 -->
 <div class="menu_container">
     <nav class="menu_category">
-        {% comment %} tapNumber에 따라 해당 탭 화면 open {% endcomment %}
-        <button {%if tapNumber == "0" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_1')">오넛지</button>
-        <button {%if tapNumber == "1" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')">카츠</button>
-        <button {%if tapNumber == "2" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')">더푸리</button>
+        <!-- tapNumber에 따라 해당 탭 화면 open  -->
+        <button {%if tapNumber == "0" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_1')" onmouseover="speakText('오넛지')"onmouseleave="stopSpeaking();">오넛지</button>
+        <button {%if tapNumber == "1" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_2')" onmouseover="speakText('카츠')"onmouseleave="stopSpeaking();">카츠</button>
+        <button {%if tapNumber == "2" %} id="defaultOpen"{%endif%} class="tablinks" onclick="moveInTabs(event,'category_3')" onmouseover="speakText('더푸리')"onmouseleave="stopSpeaking();">더푸리</button>
     </nav>
 
-{% comment %} 오넛지 탭 메뉴 {% endcomment %}
+<!-- 오넛지 탭 메뉴  -->
     <div id="category_1" class="tabcontent">
         <div class="menu_group">
+            <!-- 카테고리가 오넛지인 모든 메뉴 READ -->
             {% for menu in menus_1 %}
             <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
                 <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
-                    onmouseleave="stopSpeaking();">
-                    {% comment %} category_1의 모든 메뉴에 value가 0 {% endcomment %}
+                    onmouseleave="stopSpeaking();" onclick="speakText('{{menu.name}}을 선택했습니다.')">
+                    <!-- category_1의 모든 메뉴에 value가 0 -->
                     <input type="hidden" name="tapNumber" value="0" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
@@ -38,15 +39,16 @@
 
         </div>
     </div>
-{% comment %} 카츠 탭 메뉴 {% endcomment %}
+<!-- 카츠 탭 메뉴  -->
     <div id="category_2" class="tabcontent">
         <div class="menu_group">
+            <!-- 카테고리가 카츠인 모든 메뉴 READ -->
             {% for menu in menus_2 %}
             <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
                 <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
-                    onmouseleave="stopSpeaking();">
-                    {% comment %} category_2의 모든 메뉴에 value가 1 {% endcomment %}
+                    onmouseleave="stopSpeaking();" onclick="speakText('{{menu.name}}을 선택했습니다.')">
+                    <!-- category_2의 모든 메뉴에 value가 1 -->
                     <input type="hidden" name="tapNumber" value="1" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
@@ -59,15 +61,16 @@
             {% endfor %}
         </div>
     </div>
-{% comment %} 더푸리 탭 메뉴 {% endcomment %}
+<!-- 더푸리 탭 메뉴 -->
     <div id="category_3" class="tabcontent">
         <div class="menu_group">
+            <!-- 카테고리가 더푸리인 모든 메뉴 READ -->
             {% for menu in menus_3 %}
             <form action="{% url 'menu:cart_push' %}" method="post" onsubmit="cartPush(event)">
                 {% csrf_token %}
                 <button type="submit" class="menu" onmouseover="speakText('{{menu.name}} {{menu.price}}원')"
-                    onmouseleave="stopSpeaking();">
-                    {% comment %} category_3의 모든 메뉴에 value가 2 {% endcomment %}
+                    onmouseleave="stopSpeaking();" onclick="speakText('{{menu.name}}을 선택했습니다.')">
+                    <!-- category_3의 모든 메뉴에 value가 2 -->
                     <input type="hidden" name="tapNumber" value="2" />
                     <input type="hidden" name="name" value="{{ menu.name }}">
                     <input type="hidden" name="price" value="{{ menu.price }}">
@@ -80,11 +83,11 @@
             {% endfor %}
         </div>
     </div>
-{% comment %} 카트와 결제하기 {% endcomment %}
+<!-- 카트와 결제하기 -->
     <div class="payContainer">
-        <div class="cart" style="background-color: white;">
+        <div class="cart" style="background-color: white;" onmouseover="speakCartNames()" onmouseleave="stopSpeaking2();">
             {% for cart in carts %}
-            <p id="cart_name">{{cart.name}} &nbsp;&nbsp;{{cart.price}}원
+            <p id="cart_name"><span id="cart_name_2">{{cart.name}}</span> &nbsp;&nbsp;{{cart.price}}원
                 <a href="{% url 'menu:delete' cart.id %}"><button id="cart_delete">삭제하기</button></a>
                 <br>
             </p>
@@ -93,5 +96,24 @@
         <a href="{% url 'main:cart_list' %}"><button class="pay" style="background-color: white;"
                 onmouseover="speakText('결제하기')" onmouseleave="stopSpeaking();">결제하기</button></a>
     </div>
-
+    
+    <script>
+        var utterance;
+    
+        function speakCartNames() {
+            var cartNames = document.querySelectorAll('.cart #cart_name_2');
+            var names = [];
+            for (var i = 0; i < cartNames.length; i++) {
+                names.push(cartNames[i].textContent.trim());
+            }
+            utterance = new SpeechSynthesisUtterance(names.join(' ')+"가 장바구니에 들어있습니다.");
+            window.speechSynthesis.speak(utterance);
+        }
+    
+        function stopSpeaking2() {
+            if (utterance) {
+                window.speechSynthesis.cancel();
+            }
+        }
+    </script>
     {% endblock %}

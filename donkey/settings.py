@@ -57,7 +57,8 @@ ROOT_URLCONF = 'donkey.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'donkey', 'templates')],
+        #base를 donkey/templates에 두어 관리한다. 
+        'DIRS': [os.path.join(BASE_DIR, 'donkey', 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
