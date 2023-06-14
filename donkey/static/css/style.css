@@ -143,7 +143,7 @@ button:hover {
 }
 
 .payContainer {
-  height: 25%;
+  height: 23%;
   width: 100%;
   background-color: rgba(252, 197, 94, 0.5);
   display: flex;
@@ -178,7 +178,7 @@ button:hover {
   font-size: 25px;
 }
 .tabcontent {
-  height: 80%;
+  height: 82%;
   background-color: orange;
 }
 
