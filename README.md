@@ -53,7 +53,7 @@ urlpatterns = [
 > menu모델의 모든 데이터를 보여주고 cart모델의 Read와 Delete가 가능한 페이지
 
 ### menu>models.py
->  menu모델 : name, price, category, image를 속성으로 갖는다.
+>  menu모델 : name, price, category, image를 속성으로 갖는다.   
 >  cart모델링 : name, price, image를 속성으로 갖는다.
 
 ### menu>urls.py
@@ -73,11 +73,11 @@ urlpatterns = [
 > /menu/delete/<int:id> : 장바구니의 해당 id의 데이터 DELETE을 진행함. 
 
 ### menu>views.py
-> menu : menu모델 READ
-> cart_push : cart모델 CREATE
-> cart_delete : cart모델 DELETE
-> cart_list : cart모델 READ
-> cart_delete_each(request, id) : 해당 id의 cart모델 DELETE
+> menu : menu모델 READ   
+> cart_push : cart모델 CREATE   
+> cart_delete : cart모델 DELETE   
+> cart_list : cart모델 READ   
+> cart_delete_each(request, id) : 해당 id의 cart모델 DELETE   
 
 ## 파일 설명
 
