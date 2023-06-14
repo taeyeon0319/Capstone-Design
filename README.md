@@ -1,5 +1,5 @@
 # 동키 키오스크   
-## 프로젝트 소개
+## 폴더 및 파일 설명
 ### 1. donkey 폴더
 #### donkey>static
 > css, img, js를 관리하는 static 폴더   
